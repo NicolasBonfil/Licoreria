@@ -1,0 +1,521 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@600&display=swap');
+
+/* GENERAL */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+p {
+    margin: 0;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
+html, body, #root {
+    height: 100%;
+}
+
+.item-name{
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.precio{
+    font-size: 1.150rem;
+    font-weight: 400;
+    font-family: "Assistant";
+}
+
+.cargando{
+    height: 100%;
+}
+
+/* HEADER */
+
+header{
+    width: 100%;
+    overflow: hidden;
+}
+
+.navbar{
+    display: grid;
+    grid-template-areas:
+    "menu logo utilities"
+    "navegador navegador navegador";
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    grid-area: logo;
+}
+
+.logo a{
+    display: flex;
+    justify-content: center;
+}
+
+.logo img{
+    width: 125px;
+    filter: brightness(1.1);
+    mix-blend-mode: multiply;
+}
+
+.navegador{
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100vh;
+    width: 300px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0px;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.2);
+    padding: 80px 0 0 18px;
+}
+
+.navegador svg{
+    position: absolute;
+    right: 30px;
+    top: 25px;
+    font-size: 25px;
+}
+
+.navegador.activo{
+    display: flex;
+}
+
+.utilities{
+    grid-area: utilities;
+    display: flex;
+    justify-content: center;
+    font-size: 27px;
+    column-gap: 25px;
+}
+
+.nav-item {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.nav-item a{
+    font-weight: 600;
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+}
+
+.menu-hamburguesa{
+    grid-area: menu;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+/* CARRITO */
+
+.carrito {
+    position: relative;
+    cursor: pointer;
+}
+
+.contador-productos{
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: grey;
+    color: white;
+    top: 1.3px;
+    left: 16.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contador-productos p{
+    font-size: 10px;
+}
+
+.offcanvas-body .botones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.offcanvas-body .botones button{
+    letter-spacing: 3px;
+}
+
+.cart-item{
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    border-bottom: 1px solid rgb(0,0,0,.1);
+    padding: 10px;
+}
+
+.cart-item img{
+    width: 80px;
+}
+
+.cart-total{
+    padding: 7px;
+    column-gap: 7px;
+}
+
+.cuenta{
+    cursor: pointer;
+}
+
+/* LOGIN SIGNUP*/
+
+.logInContainer, .signUpContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 83%;
+    padding: 20px;
+}
+
+.logInContainer h1, .signUpContainer h1{
+    margin-bottom: 40px;
+}
+
+.logIn, .signUp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logInFields, .signUpFields{
+    display: flex;
+    flex-direction: column;
+}
+
+.logInFields input, .signUpFields input{
+    padding: 16px;
+    margin: 7px;
+    width: 250px;
+}
+
+.logInButton button, .signUpButton button{
+    padding: 10px;
+    color: white;
+    background-color: black;
+    margin: 1px;
+    width: 250px;
+}
+
+.logInError, .signUpError{
+    font-size: 11px;
+    color: red;
+    width: 100%;
+    padding: 1px 8px;
+}
+
+/* CUENTA */
+
+.cuenta{
+    height: 100%;
+}
+
+/* PRODUCTOS */
+
+.contenedor{
+    padding: 15px 30px 30px 30px;
+}
+
+.container-productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 25px;
+    column-gap: 12px;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.40);
+}
+
+.item:hover{
+    border-radius: 10px 10px 0px 0px;
+}
+
+.item a{
+    display: block;
+    height: 100%;
+}
+
+.item figure{
+    overflow: hidden;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.item figure img{
+    width: 100%;
+}
+
+.item-body{
+    display: flex;
+    flex-direction: column;
+    border-top: 0.5px solid rgb(0,0,0,.1);
+    padding: 7px;
+}
+
+/* DETALLE PRODUCTOS */
+
+.detalle-container{
+    background-color: #ededed;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.detalle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 2.5;
+    background-color: #fff;
+    padding: 150px 0px;
+    border: 1px solid #262626;
+    width: 70%;
+    height: 100%;
+}
+
+.foto-detalle{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.foto-detalle img{
+    width: 55%;
+}
+
+.contenido-detalle {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    line-height: 2;
+    padding: 25px;
+}
+
+.item-count{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.contador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    height: 30px;
+    overflow: hidden;
+    padding: 0px 12px;
+}
+
+.contador button{
+    border: none;
+    background-color: #fff;
+    font-size: 17px;
+}
+
+
+/* FOOTER */
+
+.footer{
+    background-color: #1b1b1b;
+    padding: 50px;
+    width: 100%;
+}
+
+.footer ul li{
+    list-style-type: none;
+}
+
+.footer-link a{
+    color: white;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+.footer-title{
+    margin-bottom: 17px;
+}
+
+.footer-title a{
+    color: #999;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 991px) {
+    .container-productos{
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 8px;
+    } 
+
+    .item-count{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 689px) {
+    .container-productos{
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 5px;
+    }
+
+    .detalle{
+        flex-direction: column;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .foto-detalle{
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .contenido-detalle{
+        width: 100%;
+    }
+
+    .item-count{
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 991px) {
+    header{
+        border-bottom: 1px solid rgb(0,0,0,.1);
+    }
+
+    .menu-hamburguesa{
+        display: none;
+    }
+    
+    .navbar {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .logo {
+        width: 25%;
+    }
+    
+    .logo img {
+        width: 27%;
+        filter: brightness(1.1);
+        mix-blend-mode: multiply;
+    }
+
+    .navegador {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        height: auto;
+        justify-content: center;
+        width: 50%;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .navegador svg{
+        display: none;
+    }
+
+    .nav-item {
+        margin: 1px;
+    }
+    
+    .nav-item a {
+        position: relative;
+        display: block;
+        text-transform: uppercase;
+        margin: 20px 0;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-family: sans-serif;
+        transition: .5s;
+        z-index: 1;
+    }
+
+    .nav-item a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-top: 2px solid #262626;
+        border-bottom: 2px solid #262626;
+        transform: scaleY(2);
+        opacity: 0;
+        transition: .3s;
+    }
+    
+    .nav-item a::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #262626;
+        transform: scale(0);
+        opacity: 0;
+        transition: .3s;
+        z-index: -1;
+    }
+    
+    .nav-item a:hover {
+        color: #fff;
+    }
+    
+    .nav-item a:hover::before {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    
+    .nav-item a:hover::after {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    
+    .utilities {
+        width: 25%;
+    }
+}
