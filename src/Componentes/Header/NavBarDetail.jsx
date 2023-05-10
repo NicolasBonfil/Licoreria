@@ -7,7 +7,7 @@ export const NavBarDetail = ({mostrar, menuRef, setMostrar}) => {
     return(
         <div className="navbar">
             <Logo/>
-            <MenuHamburgesa/>
+            <MenuHamburgesa setMostrar={setMostrar}/>
             <Navegador mostrar={mostrar} menuRef={menuRef} setMostrar={setMostrar}/>
             <Utilities/>
         </div>

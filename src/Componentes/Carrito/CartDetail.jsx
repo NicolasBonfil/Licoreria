@@ -3,7 +3,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
-export const CartDetail = ({mostrar, ocultarCarrito, carrito, finalizarCompra, eliminarDelCarrito, total}) => {
+export const CartDetail = ({mostrar, ocultarCarrito, carrito, iniciarCompra, eliminarDelCarrito, total}) => {
 	return (
 		<div className='detalle-carrito'>
 			<Offcanvas show={mostrar} onHide={ocultarCarrito} placement='end'>
@@ -42,7 +42,7 @@ export const CartDetail = ({mostrar, ocultarCarrito, carrito, finalizarCompra, e
 							</div>
 
 							<div className='botones'>
-								<button className='btn btn-outline-dark' onClick={() => finalizarCompra(carrito)}>INICIAR COMPRA</button>
+								<button className='btn btn-outline-dark' onClick={() => {iniciarCompra(); ocultarCarrito()}}>INICIAR COMPRA</button>
 								<Link to={"/"}>
 									<button className='btn' onClick={ocultarCarrito}>Ver Más Productos</button>
 								</Link>

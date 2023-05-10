@@ -2,6 +2,8 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../service/firebase/config";
 import { createContext, useContext, useEffect, useState } from "react";
 
+import Swal from "sweetalert2";
+
 const CartContext = createContext([])
 
 export const useCartContext = () => useContext(CartContext)
@@ -30,8 +32,7 @@ export const CartContextProvider = ({children}) => {
             const buscado = carrito.find(item => item.id === producto.id)
             buscado.cantidad += cantidad
             buscado.stock -= cantidad
-            setCantidadProductos(cantidadProductos + cantidad)
-            setTotal(total + (producto.price * cantidad))
+            setCarrito([...carrito])
         }else{
             const productoRef = doc(db, "productos", producto.id)
             getDoc(productoRef)
@@ -58,41 +59,20 @@ export const CartContextProvider = ({children}) => {
         setCarrito(carrito.filter(item => item.id != producto.id))
     }
 
-    // const finalizarCompra = (carrito) => {
-	// 	console.log(carrito);
-
-    //     carrito.forEach(item =>{
-    //         const productoRef = doc(db, "productos", item.id)
-    
-    //         getDoc(productoRef)
-    //             .then(res => {
-    //                 const producto = ({...res.data()})
-    //                 console.log(producto.pepe);
-    //                 // updateDoc(res, {
-    //                 //     pepe: producto.pepe - producto.stock,
-    //                 // })
-    //             })
-    //             .finally(res => {
-    //                 const producto = {...res.data()}
-    //                 updateDoc(productoRef, {
-    //                     stock: producto.pepe,
-    //                 })
-    //             })
-    //     })
-	// }
+    const iniciarCompra = () => {
+		Swal.fire({
+            title: "Compra Realizada",
+            icon: "success",
+        })
+        setCarrito([])
+	}
 
     const [cantidadProductos, setCantidadProductos] = useState(0)
     const [total, setTotal] = useState(0)
 
     useEffect(() => {
-        let totalProductos = 0
-        let totalPrecio = 0
-        carrito.forEach(producto => {
-            totalProductos += producto.cantidad
-            totalPrecio += (producto.cantidad * producto.price)
-        })
-        setCantidadProductos(totalProductos)
-        setTotal(totalPrecio)
+        setCantidadProductos(carrito.reduce((total, producto) => total += producto.cantidad, 0))
+        setTotal(carrito.reduce((total, producto) => total += (producto.price * producto.cantidad), 0))
     }, [carrito])
 
     return(
@@ -100,7 +80,7 @@ export const CartContextProvider = ({children}) => {
             value={{
                 agregarAlCarrito,
                 eliminarDelCarrito,
-                // finalizarCompra,
+                iniciarCompra,
                 carrito,
                 cantidadProductos,
                 total

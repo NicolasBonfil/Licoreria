@@ -10,11 +10,9 @@ export const CartContainer = () => {
 
 	const {carrito} = useCartContext()
 
-	const finalizarCompra = (carrito) => {
-		console.log(carrito);
-	}
 
-	const {eliminarDelCarrito, cantidadProductos, total} = useCartContext()
+	const {eliminarDelCarrito, cantidadProductos, total, iniciarCompra} = useCartContext()
+
 
     return (
       <div>
@@ -26,7 +24,7 @@ export const CartContainer = () => {
 					</div>
 				</div>
 
-				<CartDetail mostrar={mostrar} ocultarCarrito={ocultarCarrito} finalizarCompra = {finalizarCompra} carrito = {carrito} eliminarDelCarrito = {eliminarDelCarrito} total = {total}/>
+				<CartDetail mostrar={mostrar} ocultarCarrito={ocultarCarrito} iniciarCompra = {iniciarCompra} carrito = {carrito} eliminarDelCarrito = {eliminarDelCarrito} total = {total}/>
 			</>
       </div>
     )
