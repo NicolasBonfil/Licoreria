@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { NavBar } from "./NavBar"
+import { NavBarDetail } from "./NavBarDetail"
 
 export const NavBarContainer = () => {
     const [mostrar, setMostrar] = useState(false)
@@ -20,6 +20,6 @@ export const NavBarContainer = () => {
         }
     })
   return (
-    <NavBar mostrar={mostrar} menuRef={menuRef} setMostrar={setMostrar}/>
+    <NavBarDetail mostrar={mostrar} menuRef={menuRef} setMostrar={setMostrar}/>
   )
 }
