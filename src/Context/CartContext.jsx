@@ -26,13 +26,16 @@ export const CartContextProvider = ({children}) => {
     }
 
     const agregarAlCarrito = (producto, cantidad) => {
+
         restarStock(producto.id, producto.stock, cantidad)
+
         
         if(carrito.find(item => item.id === producto.id)){
             const buscado = carrito.find(item => item.id === producto.id)
             buscado.cantidad += cantidad
             buscado.stock -= cantidad
-            setCarrito([...carrito])
+            setCantidadProductos(carrito.reduce((total, producto) => total += producto.cantidad, 0))
+            setTotal(carrito.reduce((total, producto) => total += (producto.price * producto.cantidad), 0))
         }else{
             const productoRef = doc(db, "productos", producto.id)
             getDoc(productoRef)
@@ -56,7 +59,7 @@ export const CartContextProvider = ({children}) => {
     const eliminarDelCarrito = (producto) => {
         const buscado = carrito.find(item => item.id === producto.id)
         sumarStock(buscado.id, buscado.cantidad, buscado.stock)
-        setCarrito(carrito.filter(item => item.id != producto.id))
+        setCarrito(carrito.filter(item => item.id !== producto.id))
     }
 
     const iniciarCompra = () => {

@@ -4,64 +4,63 @@ import { faInstagram, faFacebook, faTwitter } from '@fortawesome/free-brands-svg
 
 export const Footer = () => {
   return (
-    <div className="footer">
-        <div className="row">
-			<div className="footer-item col d-flex justify-content-center">
-				<ul style={{display: "flex", flexDirection: "column", color: "white"}}>
-				<li className="footer-title">
-					<Link to="/">
-						PRODUCTOS
-					</Link>
-				</li>
-				<li className="footer-link">
-					<Link to="/categoria/cervezas">
-							CERVEZAS
-					</Link>
-				</li>
-				<li className="footer-link">
-					<Link to="/categoria/vinos">
-                        VINOS
-                    </Link>
-				</li>
-				<li className="footer-link">
-					<Link to="/categoria/whisky">
-                        WHISKY
-                    </Link>
-				</li>
+	<div className="container">
+		<div className="row">
+			<div className="footer-col">
+				<h4>Ayuda</h4>
+				<ul>
+					<li>
+						<Link>
+							Envíos
+						</Link>
+					</li>
+					<li>
+						<Link>
+							Devoluciones
+						</Link>
+					</li>
+					<li>
+						<Link>
+							Contactanos
+						</Link>
+					</li>
 				</ul>
 			</div>
-			<div className="footer-item col d-flex justify-content-center">
-				<ul style={{display: "flex", flexDirection: "column", color: "white"}}>
-					<li className="footer-title">Ayuda</li>
-					<li className="footer-link">3</li>
-					<li className="footer-link">3</li>
-					<li className="footer-link">3</li>
+			<div className="footer-col">
+				<h4>Productos</h4>
+				<ul>
+					<li>
+						<Link to="/categoria/cervezas">
+							Cervezas
+						</Link>
+					</li>
+					<li>
+						<Link to="/categoria/vinos">
+							Vinos
+						</Link>
+					</li>
+					<li>
+						<Link to="categoria/whisky">
+							Whisky
+						</Link>
+					</li>
 				</ul>
 			</div>
-			<div className="footer-item col d-flex justify-content-center">
-				<ul style={{display: "flex", flexDirection: "column", color: "white"}}>
-					<li className="footer-title">Redes</li>
-					<li className="footer-link">
-						<a href="" style={{display: "flex", alignItems: "center", columnGap: 5}}>
-							<FontAwesomeIcon icon={faInstagram} />
-							<p>Instagram</p>
-						</a>
-					</li>
-					<li className="footer-link">
-						<a href="" style={{display: "flex", alignItems: "center", columnGap: 5}}>
-							<FontAwesomeIcon icon={faFacebook} />
-							<p>Facebook</p>
-						</a>
-					</li>
-					<li className="footer-link">
-						<a href="" style={{display: "flex", alignItems: "center", columnGap: 5}}>
-							<FontAwesomeIcon icon={faTwitter} />
-							<p>Twitter</p>
-						</a>
-					</li>
-				</ul>
+			<div className="footer-col">
+				<h4>Seguinos!</h4>
+				<div className="social-links">
+					<a href="https://www.instagram.com/" target="blank">
+						<FontAwesomeIcon icon={faInstagram} />
+					</a>
+					<a href="https://www.facebook.com/" target="blank">
+						<FontAwesomeIcon icon={faFacebook} />
+					</a>
+					<a href="https://www.twitter.com/" target="blank">
+						<FontAwesomeIcon icon={faTwitter} />
+					</a>
+				</div>
 			</div>
 		</div>
-    </div>
+	</div>
   )
 }

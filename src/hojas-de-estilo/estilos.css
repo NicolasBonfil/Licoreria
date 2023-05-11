@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* GENERAL */
 
@@ -27,6 +28,7 @@ a:hover {
 
 html, body, #root {
     height: 100%;
+    width: 100%;
 }
 
 .item-name{
@@ -42,6 +44,7 @@ html, body, #root {
 
 .cargando{
     height: 100%;
+    padding: 30px;
 }
 
 /* HEADER */
@@ -349,7 +352,7 @@ header{
 
 /* FOOTER */
 
-.footer{
+/* .footer{
     background-color: #1b1b1b;
     padding: 50px;
     width: 100%;
@@ -371,6 +374,91 @@ header{
 
 .footer-title a{
     color: #999;
+} */
+
+footer{
+    background-color: #24262b;
+    padding: 70px 0px;
+    line-height: 1.5;
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+    overflow: hidden;
+}
+
+.container{
+    max-width: 1170px;
+    margin-left: 35px;
+}
+
+footer .container .row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-col{
+    width: 25%;
+    padding: 0 15px;;
+}
+
+.footer-col h4{
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 48px;
+}
+
+.footer-col ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #bbbbbb;
+    font-weight: 300;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover{
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.footer-col .social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover{
+    color: #24262b;
+    background-color: #ffffff;
 }
 
 /* MEDIA QUERIES */
@@ -410,6 +498,7 @@ header{
 
     .item-count{
         flex-direction: row;
+        align-items: center;
     }
 }
 
@@ -517,5 +606,18 @@ header{
     
     .utilities {
         width: 25%;
+    }
+}
+
+@media(max-width: 767px){
+    .footer-col{
+        width: 33%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 574px){
+    .footer-col{
+        width: 50%;
     }
 }
