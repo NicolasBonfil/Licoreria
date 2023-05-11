@@ -3,17 +3,17 @@ import { Link } from "react-router-dom"
 export const SignUpDetail = ({divRef, setUsuario, setContraseña, manejarRegistro}) => {
 
     return (
-        <div className="signUpContainer">
+        <div className="signUp-container">
             <h1>Crear Cuenta</h1>
             <form className="signUp" onSubmit={manejarRegistro}>
-                <div className="signUpFields">
+                <div className="campos-signUp">
                     <input type="email" placeholder="Correo Electrónico" onChange={(e) => setUsuario(e.target.value)}/>
                     <input type="password" placeholder="Contraseña" onChange={(e) => setContraseña(e.target.value)}/>
                 </div>
 
-                <div className="signUpError" ref={divRef}></div>
+                <div className="signUp-error" ref={divRef}></div>
 
-                <div className="signUpButton">
+                <div className="signUp-boton">
                     <button>Crear Cuenta</button>
                 </div>
             </form>

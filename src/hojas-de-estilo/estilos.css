@@ -92,6 +92,7 @@ header{
     left: 0px;
     box-shadow: 0 40px 60px rgba(0, 0, 0, 0.2);
     padding: 80px 0 0 18px;
+    z-index: 1;
 }
 
 .navegador svg{
@@ -190,7 +191,7 @@ header{
 
 /* LOGIN SIGNUP*/
 
-.logInContainer, .signUpContainer{
+.logIn-container, .signUp-container{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -198,7 +199,7 @@ header{
     padding: 20px;
 }
 
-.logInContainer h1, .signUpContainer h1{
+.logIn-container h1, .signUp-container h1{
     margin-bottom: 40px;
 }
 
@@ -209,18 +210,18 @@ header{
     align-items: center;
 }
 
-.logInFields, .signUpFields{
+.campos-logIn, .campos-signUp{
     display: flex;
     flex-direction: column;
 }
 
-.logInFields input, .signUpFields input{
+.campos-logIn input, .campos-signUp input{
     padding: 16px;
     margin: 7px;
     width: 250px;
 }
 
-.logInButton button, .signUpButton button{
+.logIn-boton button, .signUp-boton button{
     padding: 10px;
     color: white;
     background-color: black;
@@ -228,7 +229,7 @@ header{
     width: 250px;
 }
 
-.logInError, .signUpError{
+.logIn-error, .signUp-error{
     font-size: 11px;
     color: red;
     width: 100%;
@@ -352,30 +353,6 @@ header{
 
 /* FOOTER */
 
-/* .footer{
-    background-color: #1b1b1b;
-    padding: 50px;
-    width: 100%;
-}
-
-.footer ul li{
-    list-style-type: none;
-}
-
-.footer-link a{
-    color: white;
-    font-family: sans-serif;
-    font-size: 15px;
-}
-
-.footer-title{
-    margin-bottom: 17px;
-}
-
-.footer-title a{
-    color: #999;
-} */
-
 footer{
     background-color: #24262b;
     padding: 70px 0px;
@@ -383,6 +360,7 @@ footer{
     font-family: "Poppins", sans-serif;
     width: 100%;
     overflow: hidden;
+    margin-top: 25px;
 }
 
 .container{
@@ -461,6 +439,186 @@ footer .container .row{
     background-color: #ffffff;
 }
 
+/* CONTACTO */
+
+.contactos{
+    padding: 25px;
+}
+
+.contactos .titulo{
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+.container-formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%;
+}
+
+.info-contacto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.container-formulario input, .container-formulario textarea{
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.container-formulario .btn{
+    border-radius: 0px;
+}
+
+.telefono, .instagram, .mail{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.boton-enviar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* PREGUNTAS FRECUENTES */
+
+.preguntas-frecuentes{
+    padding: 40px;
+}
+
+.preguntas-frecuentes .titulo{
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+/* ENVIOS */
+
+.envios{
+    margin-bottom: 21px;
+}
+
+.envios .titulo{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.envios .titulo::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 28px;
+}
+
+.envios p{
+    font-size: 17px;
+}
+
+/* COMO COMPRAR */
+
+.como-comprar{
+    margin-bottom: 21px;
+}
+
+.como-comprar .titulo{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.como-comprar .titulo::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.como-comprar p{
+    font-size: 17px;
+}
+
+/* DEVOLUCIONES */  
+.devoluciones{
+    margin-bottom: 21px;
+}
+
+.devoluciones .titulo{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.devoluciones .titulo::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 44px;
+}
+
+.devoluciones p{
+    font-size: 17px;
+}
+
+.devoluciones ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+/* ATENCION AL CLIENTE */
+
+.atencion-al-cliente .titulo{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.atencion-al-cliente .titulo::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 70px;
+}
+
+.atencion-al-cliente p{
+    font-size: 17px;
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 991px) {
@@ -499,6 +657,20 @@ footer .container .row{
     .item-count{
         flex-direction: row;
         align-items: center;
+    }
+
+    .contactos .row{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-formulario{
+        width: 100%;
+    }
+
+    .info-contacto{
+        width: 100%;
     }
 }
 

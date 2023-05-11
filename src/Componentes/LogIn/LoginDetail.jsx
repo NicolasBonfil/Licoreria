@@ -21,17 +21,17 @@ export const LoginDetail = ({iniciarSesion, divRef}) => {
 
 
     return (
-        <div className="logInContainer">
+        <div className="logIn-container">
             <h1>Iniciar Sesión</h1>
             <form className="logIn" onSubmit={manejarInicioSesion}>
-                <div className="logInFields">
+                <div className="campos-logIn">
                     <input type="email" placeholder="Correo Electrónico" onChange={(e) => setUsuario(e.target.value)}/>
                     <input type="password" placeholder="Contraseña" onChange={(e) => setContraseña(e.target.value)}/>
                 </div>
 
-                <div className="logInError" ref={divRef}></div>
+                <div className="logIn-error" ref={divRef}></div>
 
-                <div className="logInButton">
+                <div className="logIn-boton">
                     <button>Iniciar Sesión</button>
                 </div>
             </form>

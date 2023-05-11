@@ -5,11 +5,13 @@ import { Logo } from "./Logo"
 
 export const NavBarDetail = ({mostrar, menuRef, setMostrar}) => {
     return(
-        <div className="navbar">
-            <Logo/>
-            <MenuHamburgesa setMostrar={setMostrar}/>
-            <Navegador mostrar={mostrar} menuRef={menuRef} setMostrar={setMostrar}/>
-            <Utilities/>
-        </div>
+        <header>
+            <div className="navbar">
+                <Logo/>
+                <MenuHamburgesa setMostrar={setMostrar}/>
+                <Navegador mostrar={mostrar} menuRef={menuRef} setMostrar={setMostrar}/>
+                <Utilities/>
+            </div>
+        </header>
     )
 }
