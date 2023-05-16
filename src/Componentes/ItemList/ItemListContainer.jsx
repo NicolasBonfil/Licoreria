@@ -1,11 +1,12 @@
 import { ItemList } from "./ItemList"
-import { Cargando } from "../Extras/Cargando"
+import { Cargando } from "../Cargando/Cargando"
 
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
 import {collection, query, onSnapshot, where} from "firebase/firestore"
 import { db } from "../../service/firebase/config";
+import { NavBarContainer } from "../Header/NavBarContainer"
 
 export const ItemListContainer = () => {
 
@@ -33,9 +34,14 @@ export const ItemListContainer = () => {
     
 
     return (
-        estaCargando?
-            <Cargando/>
-        :
-            <ItemList productos = {productos}/>
+        <>
+            <NavBarContainer/>
+            {
+                estaCargando?
+                    <Cargando/>
+                :
+                    <ItemList productos = {productos}/>
+            }
+        </>
     )
 }

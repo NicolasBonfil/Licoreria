@@ -1,32 +1,14 @@
-import { useState } from "react"
 import { Link } from "react-router-dom"
-import { useSesionContext } from "../../Context/SesionContext.jsx"
 
-export const LoginDetail = ({iniciarSesion, divRef}) => {
-
-    const [usuario, setUsuario] = useState("")
-    const [contraseña, setContraseña] = useState("")
-
-    const {iniciarSesionConGoogle} = useSesionContext()
-
-    const manejarInicioSesion = (e) => {
-        e.preventDefault()
-        iniciarSesion(usuario, contraseña)
-    }
-
-    const manejarInicioSesionGoogle = (e) => {
-        e.preventDefault()
-        iniciarSesionConGoogle()
-    }
-
+export const LoginDetail = ({formData, iniciarSesion, divRef, iniciarSesionConGoogle, manejarCambio}) => {
 
     return (
         <div className="logIn-container">
             <h1>Iniciar Sesión</h1>
-            <form className="logIn" onSubmit={manejarInicioSesion}>
+            <form className="logIn" onSubmit={iniciarSesion}>
                 <div className="campos-logIn">
-                    <input type="email" placeholder="Correo Electrónico" onChange={(e) => setUsuario(e.target.value)}/>
-                    <input type="password" placeholder="Contraseña" onChange={(e) => setContraseña(e.target.value)}/>
+                    <input type="email" placeholder="Correo Electrónico" name="usuario" value={formData.usuario} onChange={manejarCambio}/>
+                    <input type="password" placeholder="Contraseña" name="contraseña" value={formData.contraseña} onChange={manejarCambio}/>
                 </div>
 
                 <div className="logIn-error" ref={divRef}></div>
@@ -37,9 +19,8 @@ export const LoginDetail = ({iniciarSesion, divRef}) => {
             </form>
 
             <div>
-                <button style={{paddingTop:10, paddingBottom: 10, paddingRight: 20, paddingLeft: 20, margin: 10, border : "none", fontSize: 16}} onClick = {manejarInicioSesionGoogle}>
-                    Iniciar Sesión con Google <img src="https://img.icons8.com/?size=512&id=17949&format=png" alt="" style={{width: 25, height: 25}}/>
-                    
+                <button style={{paddingTop:10, paddingBottom: 10, paddingRight: 20, paddingLeft: 20, margin: 10, border : "none", fontSize: 16}} onClick = {iniciarSesionConGoogle}>
+                    Continuar con Google <img src="https://img.icons8.com/?size=512&id=17949&format=png" alt="" style={{width: 25, height: 25}}/>
                 </button>
             </div>
 

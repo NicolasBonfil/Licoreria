@@ -1,4 +1,4 @@
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../service/firebase/config";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -12,24 +12,7 @@ export const CartContextProvider = ({children}) => {
 
     const [carrito, setCarrito] = useState([])
 
-    const restarStock = (id, stock, cantidad) => {
-        if(stock > 0){
-            const productoRef = doc(db, "productos", id)
-
-            updateDoc(productoRef, {
-                stock: stock - cantidad,
-            })
-            .catch(error => {
-                console.log(error);
-            })
-        }
-    }
-
-    const agregarAlCarrito = (producto, cantidad) => {
-
-        restarStock(producto.id, producto.stock, cantidad)
-
-        
+    const agregarAlCarrito = (producto, cantidad) => {        
         if(carrito.find(item => item.id === producto.id)){
             const buscado = carrito.find(item => item.id === producto.id)
             buscado.cantidad += cantidad
@@ -46,26 +29,16 @@ export const CartContextProvider = ({children}) => {
         }
     }
 
-    const sumarStock = (id, cantidad, stock) => {
-        const productoRef = doc(db, "productos", id)
-            updateDoc(productoRef, {
-                stock: stock + cantidad,
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
-
     const eliminarDelCarrito = (producto) => {
         const buscado = carrito.find(item => item.id === producto.id)
-        sumarStock(buscado.id, buscado.cantidad, buscado.stock)
         setCarrito(carrito.filter(item => item.id !== producto.id))
     }
 
-    const iniciarCompra = () => {
+    const finalizarCompra = (id) => {
 		Swal.fire({
             title: "Compra Realizada",
             icon: "success",
+            text: `Tu numero de orden es: ${id}`
         })
         setCarrito([])
 	}
@@ -83,7 +56,7 @@ export const CartContextProvider = ({children}) => {
             value={{
                 agregarAlCarrito,
                 eliminarDelCarrito,
-                iniciarCompra,
+                finalizarCompra,
                 carrito,
                 cantidadProductos,
                 total

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/futura-pt');
 
 /* GENERAL */
 
@@ -44,7 +45,14 @@ html, body, #root {
 
 .cargando{
     height: 100%;
-    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cargando .spinner{
+    width: 130px;
+    height: 130px;
 }
 
 /* HEADER */
@@ -618,6 +626,102 @@ footer .container .row{
 .atencion-al-cliente p{
     font-size: 17px;
 }
+
+/* CHECKOUT */
+
+.header-checkout{
+    display: flex;
+    justify-content: center;
+}
+
+.checkout{
+    padding: 25px;
+    height: 100vh;
+}
+
+
+.checkout .titulo{
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+.checkout-contenido{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 0;
+    font-family: "Futura PT", sans-serif;
+}
+
+.checkout-contenido .cantidad-articulos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 8px;
+    font-size: 20px;
+    column-gap: 7px;
+}
+
+.checkout-contenido .cantidad-articulos p{
+    opacity: 0.7;
+}
+
+.checkout-item{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 8px;
+}
+
+.checkout-item img{
+    width: 10%;
+}
+
+.checkout-item p{
+    font-size: 16px;
+    color: #24262b;
+    opacity: 0.7;
+}
+
+.checkout-item .nombre{
+    color: black;
+    opacity: 1;
+}
+
+.total{
+    padding: 10px;
+}
+
+.checkout-contenido .boton-enviar .btn{
+    border-radius: 0;
+    padding: 5px;
+    margin-bottom: 7px;
+}
+
+.formulario-checkout{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.formulario-checkout input{
+    margin: 0 6px 45px 0;
+    padding: 7px;
+    width: 48%;
+    height: 75px;
+    border: .5px solid rgba(0, 0, 0, 0.1);
+}
+
+.formulario-checkout .boton-enviar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 
 /* MEDIA QUERIES */
 

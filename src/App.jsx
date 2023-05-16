@@ -11,9 +11,9 @@ import { SignUpContainer } from './Componentes/SignUp/SignUpContainer'
 import { CuentaContainer } from './Componentes/Cuenta/CuentaContainer'
 import { SesionContextProvider } from './Context/SesionContext'
 import { Footer } from './Componentes/Footer/Footer'
-import { NavBarContainer } from './Componentes/Header/NavBarContainer'
 import { ContactoContainer } from './Componentes/Contacto/ContactoContainer'
 import { PreguntasFrecuentes } from './Componentes/PreguntasFrecuentes/PreguntasFrecuentes'
+import { CheckoutContainer } from './Componentes/Checkout/CheckoutContainer'
 
 
 function App() {
@@ -22,8 +22,6 @@ function App() {
 		<CartContextProvider>
 			<Router>
 				
-				<NavBarContainer/>
-
 				<Routes>
 					<Route path='/' element = {<ItemListContainer/>}/>
 					<Route path='/categoria/:cid' element = {<ItemListContainer/>}/>
@@ -34,6 +32,8 @@ function App() {
 					<Route path='/access' element = {<LoginContainer/>}/>
 					<Route path='/signup' element = {<SignUpContainer/>}/>
 					<Route path='/cuenta' element = {<CuentaContainer/>}/>
+
+					<Route path='/checkout' element = {<CheckoutContainer/>}/>
 
 					<Route path='/contacto' element = {<ContactoContainer/>}/>
 					<Route path='/preguntas-frecuentes' element = {<PreguntasFrecuentes/>}/>

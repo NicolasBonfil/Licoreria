@@ -6,7 +6,8 @@ import { db } from "../../service/firebase/config";
 import { useCartContext } from "../../Context/CartContext"
 
 import { ItemDetail } from "./ItemDetail"
-import { Cargando } from "../Extras/Cargando"
+import { Cargando } from "../Cargando/Cargando"
+import { NavBarContainer } from "../Header/NavBarContainer";
 
 export const ItemDetailContainer = () => {
 	const [producto, setProducto] = useState({})
@@ -35,10 +36,14 @@ export const ItemDetailContainer = () => {
 	}
     
     return (
-		estaCargando?
-			<Cargando/>
-		:
-			<ItemDetail producto = {producto} añadir={añadir}/>
-
+		<>
+			<NavBarContainer/>
+			{
+				estaCargando?
+				<Cargando/>
+			:
+				<ItemDetail producto = {producto} añadir={añadir}/>
+			}
+		</>
 	)
 }

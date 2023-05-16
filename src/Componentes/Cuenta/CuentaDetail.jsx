@@ -1,10 +1,7 @@
-import { useNavigate } from "react-router-dom"
-import { useSesionContext } from "../../Context/SesionContext"
-
 export const CuentaDetail = ({manejarSesion}) => {
   return (
-    <div className="cuenta">
-      <button onClick={manejarSesion}>Cerrar Sesión</button>
+    <div className="cuenta" style={{padding: 20}}>
+      <button onClick={manejarSesion} className="btn btn-outline-danger">Cerrar Sesión</button>
     </div>
   )
 }

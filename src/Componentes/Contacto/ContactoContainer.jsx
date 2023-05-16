@@ -13,10 +13,10 @@ export const ContactoContainer = () => {
         mensaje: ""
     })
 
-    const manejarCambio = (evt) => {
+    const manejarCambio = (e) => {
         setFormData({
             ...formData,
-            [evt.target.name] : evt.target.value
+            [e.target.name] : e.target.value
         })
     }
 

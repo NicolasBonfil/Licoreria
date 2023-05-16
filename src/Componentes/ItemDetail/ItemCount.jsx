@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { useContador } from "../../Hooks/HookContador"
 
 export const ItemCount = ({inicial, stock, producto, añadir}) => {
+
     const {cantidad, incrementar, decrementar} = useContador(inicial, stock)
 
     return(

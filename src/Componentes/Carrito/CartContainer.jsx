@@ -3,15 +3,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CartDetail } from './CartDetail';
 import { useCartContext } from '../../Context/CartContext';
 import { useMostrarCarrito } from '../../Hooks/HookMostrarCarrito';
+import { useSesionContext } from '../../Context/SesionContext';
+import { useNavigate } from 'react-router-dom';
 
 export const CartContainer = () => {
 
     const {mostrar, ocultarCarrito, mostrarCarrito} = useMostrarCarrito()
 
-	const {carrito} = useCartContext()
+	const {eliminarDelCarrito, cantidadProductos, total, carrito} = useCartContext()
+	
+	const {log} = useSesionContext()
 
-
-	const {eliminarDelCarrito, cantidadProductos, total, iniciarCompra} = useCartContext()
+	const navigate = useNavigate()
 
 
     return (
@@ -24,7 +27,7 @@ export const CartContainer = () => {
 					</div>
 				</div>
 
-				<CartDetail mostrar={mostrar} ocultarCarrito={ocultarCarrito} iniciarCompra = {iniciarCompra} carrito = {carrito} eliminarDelCarrito = {eliminarDelCarrito} total = {total}/>
+				<CartDetail mostrar={mostrar} ocultarCarrito={ocultarCarrito} carrito = {carrito} eliminarDelCarrito = {eliminarDelCarrito} total = {total} log ={log} navigate = {navigate}/>
 			</>
       </div>
     )

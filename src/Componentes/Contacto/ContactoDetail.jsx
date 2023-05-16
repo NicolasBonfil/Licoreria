@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faWhatsapp, faInstagram } from "@fortawesome/free-brands-svg-icons"
-import { faClock, faEnvelope } from "@fortawesome/free-regular-svg-icons"
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons"
 
 export const ContactoDetail = ({formData, manejarContacto, manejarCambio}) => {
     return (
